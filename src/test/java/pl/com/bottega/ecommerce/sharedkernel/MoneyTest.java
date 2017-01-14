@@ -12,7 +12,7 @@ public class MoneyTest {
     private final Currency gbpCurrency = Currency.getInstance("GBP");
 
     @Test
-    public void sumOf5MoneyAnd3MoneyOfTheSameCurrencyShouldGive8MoneyWithTheSameCurrency(){
+    public void sumOf5MoneyAnd3MoneyOfTheSameCurrencyShouldGive8MoneyWithTheSameCurrency() {
         //Given
         final Money money5 = new Money(5, usdCurrency);
         final Money money3 = new Money(3, usdCurrency);
@@ -23,7 +23,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void sumCalledOnNonEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue(){
+    public void sumCalledOnNonEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue() {
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money emptyGbpMoney = new Money(0, gbpCurrency);
@@ -34,7 +34,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void sumCalledOnEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue(){
+    public void sumCalledOnEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue() {
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money emptyGbpMoney = new Money(0, gbpCurrency);
@@ -45,7 +45,7 @@ public class MoneyTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void sumOfTwoNonZeroMoniesWithDifferentCurrenciesShouldThrowAnIllegalArgumentException(){
+    public void sumOfTwoNonZeroMoniesWithDifferentCurrenciesShouldThrowAnIllegalArgumentException() {
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money nonEmptyGbpMoney = new Money(5, gbpCurrency);
@@ -54,7 +54,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void subtractOf5MoneyAnd3MoneyOfTheSameCurrencyShouldGive2MoneyWithTheSameCurrency(){
+    public void subtractOf5MoneyAnd3MoneyOfTheSameCurrencyShouldGive2MoneyWithTheSameCurrency() {
         //Given
         final Money money5 = new Money(5, usdCurrency);
         final Money money3 = new Money(3, usdCurrency);
@@ -63,10 +63,9 @@ public class MoneyTest {
         //Then
         assertThat(result, is(new Money(2, usdCurrency)));
     }
-
-
+    
     @Test
-    public void subtractCalledOnNonEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue(){
+    public void subtractCalledOnNonEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue() {
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money emptyGbpMoney = new Money(0, gbpCurrency);
@@ -77,7 +76,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void subtractCalledOnEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithMinusNonZeroValue(){
+    public void subtractCalledOnEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithMinusNonZeroValue() {
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money emptyGbpMoney = new Money(0, gbpCurrency);
