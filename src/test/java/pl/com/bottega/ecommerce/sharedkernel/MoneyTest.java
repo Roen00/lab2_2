@@ -63,7 +63,7 @@ public class MoneyTest {
         //Then
         assertThat(result, is(new Money(2, usdCurrency)));
     }
-    
+
     @Test
     public void subtractCalledOnNonEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue() {
         //Given
@@ -84,5 +84,16 @@ public class MoneyTest {
         final Money result = emptyGbpMoney.subtract(nonEmptyUsdMoney);
         //Then
         assertThat(result, is(new Money(-5, usdCurrency)));
+    }
+
+    @Test
+    public void multiplyOf5MoneyBy3Give15MoneyWithTheSameCurrency() {
+        //Given
+        final Money money5 = new Money(5, usdCurrency);
+        final double multiplier = 3;
+        //When
+        final Money result = money5.multiplyBy(multiplier);
+        //Then
+        assertThat(result, is(new Money(15, usdCurrency)));
     }
 }
