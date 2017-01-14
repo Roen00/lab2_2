@@ -34,7 +34,7 @@ public class MoneyTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void sumOfTwoNonZeroCurrenciesShouldThrowAnIllegalArgumentException(){
+    public void sumOfTwoNonZeroMoniesWithDifferentCurrenciesShouldThrowAnIllegalArgumentException(){
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money nonEmptyGbpMoney = new Money(5, gbpCurrency);
