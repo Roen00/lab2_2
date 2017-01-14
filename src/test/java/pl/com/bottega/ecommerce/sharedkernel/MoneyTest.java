@@ -23,12 +23,23 @@ public class MoneyTest {
     }
 
     @Test
-    public void sumOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue(){
+    public void sumCalledOnNonEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue(){
         //Given
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money emptyGbpMoney = new Money(0, gbpCurrency);
         //When
         final Money result = nonEmptyUsdMoney.add(emptyGbpMoney);
+        //Then
+        assertThat(result, is(new Money(5, usdCurrency)));
+    }
+
+    @Test
+    public void sumCalledOnEmptyMoneyOfTwoMoniesWithDifferentCurrenciesButOneWithZeroValueShouldReturnMoneyWithNonZeroValue(){
+        //Given
+        final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
+        final Money emptyGbpMoney = new Money(0, gbpCurrency);
+        //When
+        final Money result = emptyGbpMoney.add(nonEmptyUsdMoney);
         //Then
         assertThat(result, is(new Money(5, usdCurrency)));
     }
