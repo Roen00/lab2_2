@@ -52,4 +52,16 @@ public class MoneyTest {
         //When
         nonEmptyUsdMoney.add(nonEmptyGbpMoney);
     }
+
+    @Test
+    public void subtractOf5MoneyAnd3MoneyOfTheSameCurrencyShouldGive2MoneyWithTheSameCurrency(){
+        //Given
+        final Money money5 = new Money(5, usdCurrency);
+        final Money money3 = new Money(3, usdCurrency);
+        //When
+        final Money result = money5.subtract(money3);
+        //Then
+        assertThat(result, is(new Money(2, usdCurrency)));
+    }
+
 }
