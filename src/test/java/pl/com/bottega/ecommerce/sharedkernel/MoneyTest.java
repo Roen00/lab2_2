@@ -107,4 +107,15 @@ public class MoneyTest {
         //Then
         assertThat(result, is(new Money(-5, usdCurrency)));
     }
+
+    @Test
+    public void multiplyOf5MoneyBy0Give0MoneyWithTheSameCurrency() {
+        //Given
+        final Money money5 = new Money(5, usdCurrency);
+        final double minus1Multiplier = 0;
+        //When
+        final Money result = money5.multiplyBy(minus1Multiplier);
+        //Then
+        assertThat(result, is(new Money(0, usdCurrency)));
+    }
 }
