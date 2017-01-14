@@ -129,4 +129,15 @@ public class MoneyTest {
         //Then
         assertTrue(result);
     }
+
+    @Test
+    public void greaterThanReturnFalseWhenComparing4MoneyWith5MoneyWithTheSameCurrency() {
+        //Given
+        final Money money5 = new Money(5, usdCurrency);
+        final Money money4 = new Money(4, usdCurrency);
+        //When
+        final boolean result = money4.greaterThan(money5);
+        //Then
+        assertFalse(result);
+    }
 }
