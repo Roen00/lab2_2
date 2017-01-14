@@ -32,4 +32,13 @@ public class MoneyTest {
         //Then
         assertThat(result, is(new Money(5, usdCurrency)));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void sumOfTwoNonZeroCurrenciesShouldThrowAnIllegalArgumentException(){
+        //Given
+        final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
+        final Money nonEmptyGbpMoney = new Money(5, gbpCurrency);
+        //When
+        nonEmptyUsdMoney.add(nonEmptyGbpMoney);
+    }
 }
