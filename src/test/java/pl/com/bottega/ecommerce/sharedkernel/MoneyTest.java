@@ -21,4 +21,16 @@ public class MoneyTest {
         assertThat(result, is(new Money(8, currency)));
     }
 
+    @Test
+    public void sumOf5USDAnd0GBPShouldGive5USD(){
+        //Given
+        final Currency usdCurrency = Currency.getInstance("USD");
+        final Currency gbpCurrency = Currency.getInstance("GBP");
+        final Money money5 = new Money(5, usdCurrency);
+        final Money money3 = new Money(0, gbpCurrency);
+        //When
+        final Money result = money5.add(money3);
+        //Then
+        assertThat(result, is(new Money(5, usdCurrency)));
+    }
 }
