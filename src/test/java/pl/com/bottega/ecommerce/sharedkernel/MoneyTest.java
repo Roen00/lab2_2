@@ -92,7 +92,7 @@ public class MoneyTest {
         final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
         final Money emptyGbpMoney = new Money(3, gbpCurrency);
         //When
-        final Money result = emptyGbpMoney.subtract(nonEmptyUsdMoney);
+        emptyGbpMoney.subtract(nonEmptyUsdMoney);
     }
 
     @Test
