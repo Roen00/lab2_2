@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Currency;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
@@ -225,5 +226,12 @@ public class MoneyTest {
         final boolean result = money5.lessOrEquals(money4);
         //Then
         assertFalse(result);
+    }
+
+    @Test
+    public void roundMoney005EuroTo0Euro(){
+        final Money money = new Money(0.005);
+        final Money expectedMoney = new Money(0.00);
+        assertThat(money, is(equalTo(expectedMoney)));
     }
 }
