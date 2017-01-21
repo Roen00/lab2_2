@@ -229,9 +229,9 @@ public class MoneyTest {
     }
 
     @Test
-    public void roundMoney005EuroTo0Euro(){
+    public void roundMoney005EuroTo01Euro(){
         final Money money = new Money(0.005);
-        final Money expectedMoney = new Money(0.00);
+        final Money expectedMoney = new Money(0.01);
         assertThat(money, is(equalTo(expectedMoney)));
     }
 }
