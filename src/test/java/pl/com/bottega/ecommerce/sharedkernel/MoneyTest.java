@@ -241,4 +241,11 @@ public class MoneyTest {
         final Money expectedMoney = new Money(0.00);
         assertThat(money, is(equalTo(expectedMoney)));
     }
+
+    @Test
+    public void roundMoneyWithManyZerosInEuroCurrency(){
+        final Money money = new Money(1.000000);
+        final Money expectedMoney = new Money(1.00);
+        assertThat(money, is(equalTo(expectedMoney)));
+    }
 }
