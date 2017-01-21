@@ -204,4 +204,15 @@ public class MoneyTest {
         //Then
         assertTrue(result);
     }
+
+    @Test
+    public void lessOrEqualsReturnFalseWhenComparing5MoneyWith4MoneyWithTheSameCurrency() {
+        //Given
+        final Money money5 = new Money(5, usdCurrency);
+        final Money money4 = new Money(4, usdCurrency);
+        //When
+        final boolean result = money5.lessOrEquals(money4);
+        //Then
+        assertFalse(result);
+    }
 }
