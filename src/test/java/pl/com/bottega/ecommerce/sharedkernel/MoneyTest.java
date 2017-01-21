@@ -86,6 +86,15 @@ public class MoneyTest {
         assertThat(result, is(new Money(-5, usdCurrency)));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void subtractOfTwoNonZeroMoniesWithDifferentCurrenciesShouldThrowAnIllegalArgumentException() {
+        //Given
+        final Money nonEmptyUsdMoney = new Money(5, usdCurrency);
+        final Money emptyGbpMoney = new Money(3, gbpCurrency);
+        //When
+        final Money result = emptyGbpMoney.subtract(nonEmptyUsdMoney);
+    }
+
     @Test
     public void multiplyOf5MoneyBy3Give15MoneyWithTheSameCurrency() {
         //Given
